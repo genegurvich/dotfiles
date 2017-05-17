@@ -1,0 +1,12 @@
+<snippet>
+  <content><![CDATA[
+<div class="control-group control-group--${1:class} {% if form.${2:field}.errors %}error{% endif %}">
+    <label class="{% if form.${2:field}.field.required %}required{% endif %}">{{ form.${2:field}.label }}</label>
+    <div class="controls">{{ form.${2:field} }}</div>
+    <div class="errors">{{ form.${2:field}.errors }}</div>
+</div>
+${3}
+]]></content>
+  <tabTrigger>cg</tabTrigger>
+  <scope>text.html, text.html.erb</scope>
+</snippet>

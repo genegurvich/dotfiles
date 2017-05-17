@@ -1,0 +1,42 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AngularJS",
+		"ApacheConf.tmLanguage",
+		"Base16 Color Schemes",
+		"Better CoffeeScript",
+		"Color Highlighter",
+		"Djaneiro",
+		"Git",
+		"Hosts",
+		"Ionic Framework Snippets",
+		"Jekyll",
+		"LESS",
+		"Liquid",
+		"LiveReload",
+		"Markdown Preview",
+		"Oceanic Next Color Scheme",
+		"OmniMarkupPreviewer",
+		"Package Control",
+		"Pretty JSON",
+		"Python Pretty Print",
+		"Sass",
+		"SideBarEnhancements",
+		"SSH Config",
+		"StringEncode",
+		"SublimeCodeIntel",
+		"SublimeLinter",
+		"SublimeLinter-csslint",
+		"SublimeLinter-jshint",
+		"SublimeLinter-pep8",
+		"SublimeLinter-pyflakes",
+		"SublimeLinter-rubocop",
+		"Text Pastry",
+		"Theme - Broceanic",
+		"View In Browser"
+	]
+}
