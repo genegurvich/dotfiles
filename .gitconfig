@@ -1,0 +1,22 @@
+[user]
+	name = Gene Gurvich
+	email = genegurvich@gmail.com
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore_global
+[merge]
+	tool = vimdiff
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	visual = gitk
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) (%cD) %C(bold blue)<%an>%Creset' --abbrev-commit
+	mine = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) (%cD) %C(bold blue)<%an>%Creset' --abbrev-commit --author='Gene Gurvich'"
+[push]
+	default = simple
+[color "diff"]
+	meta = yellow
