@@ -7,6 +7,7 @@
 	[
 		"AngularJS",
 		"ApacheConf.tmLanguage",
+		"BackgroundColorEdit",
 		"Base16 Color Schemes",
 		"Better CoffeeScript",
 		"Color Highlighter",
@@ -35,6 +36,7 @@
 		"SublimeLinter-pep8",
 		"SublimeLinter-pyflakes",
 		"SublimeLinter-rubocop",
+		"TestRSpec",
 		"Text Pastry",
 		"Theme - Broceanic",
 		"View In Browser"
