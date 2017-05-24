@@ -2,6 +2,6 @@
   <content><![CDATA[
 binding.remote_pry
 ]]></content>
-  <tabTrigger>bin</tabTrigger>
+  <tabTrigger>binr</tabTrigger>
   <scope>source.ruby</scope>
 </snippet>
