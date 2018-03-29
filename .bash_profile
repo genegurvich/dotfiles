@@ -67,7 +67,7 @@ alias gdn='git diff --name-only'
 alias gdi='git diff --ignore-space-change'
 alias gsl='git stash list'
 alias gitk='gitk --all 2>/dev/null'
-alias sgs='subl `git status --porcelain | sed -ne "s/^ M //p"`'
+alias sgs=‘subl `git status --porcelain | sed -ne "s/^UU //p"`’
 
 #-------------------------------------------------------------
 # Development Servers
