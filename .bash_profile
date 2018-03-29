@@ -173,3 +173,13 @@ chrome () {
     open -a "Google Chrome" $url ;
 }
 
+docker_attach() {
+    docker attach `docker ps | grep $1 | head -1 | cut -c1-12`
+}
+
+serve() {
+    PORT=${1:-8080}
+    chrome "http://localhost:$PORT"
+    http-server -p $PORT > /dev/null 2>&1&
+}
+
