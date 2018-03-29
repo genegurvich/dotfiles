@@ -125,7 +125,7 @@ alias random_password='openssl rand -base64 8 | pbcopy; pbpaste'
 alias cpd='pwd | pbcopy; pbpaste'
 alias pg_datetime_now='date -u +"%Y-%m-%d %H:%M:%S.000000" | pbcopy; pbpaste'
 alias whatsmyip='curl ifconfig.co'
-alias pycclean='find . -name "*.pyc" -exec rm {} \;'
+alias pycclean='find . -type f -name *.pyc -exec rm -rf {} \; && find . -type d -name __pycache__ -exec rm -rf {} \;'
 
 alias sed='gsed' # Fixes SSH autocomplete issue with hostnames starting with the letter 't'
 
