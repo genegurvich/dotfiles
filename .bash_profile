@@ -183,3 +183,6 @@ serve() {
     http-server -p $PORT > /dev/null 2>&1&
 }
 
+current_branch() {
+    git br | grep '*' | cut -c3-
+}
