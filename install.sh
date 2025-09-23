@@ -124,7 +124,10 @@ if ! command -v brew &> /dev/null; then
     # Add Homebrew to PATH for Apple Silicon Macs
     if [[ $(uname -m) == "arm64" ]]; then
         echo_info "Adding Homebrew to PATH for Apple Silicon..."
-        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+        BREW_SHELLENV='eval "$(/opt/homebrew/bin/brew shellenv)"'
+        if ! grep -q "$BREW_SHELLENV" ~/.zprofile 2>/dev/null; then
+            echo "$BREW_SHELLENV" >> ~/.zprofile
+        fi
         eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
 else
