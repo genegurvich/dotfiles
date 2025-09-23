@@ -141,6 +141,34 @@ FILES_TO_LINK=(
     ".zshrc.local"
 )
 
+# iTerm2 preferences
+ITERM_SOURCE="$DOTFILES_DIR/com.googlecode.iterm2.plist"
+ITERM_TARGET="$HOME/Library/Preferences/com.googlecode.iterm2.plist"
+
+if [[ -f "$ITERM_SOURCE" ]]; then
+    echo_step "Setting up iTerm2 preferences..."
+
+    # Backup existing iTerm2 preferences if they exist and are not a symlink
+    if [[ -f "$ITERM_TARGET" && ! -L "$ITERM_TARGET" ]]; then
+        echo_warn "Backing up existing iTerm2 preferences to com.googlecode.iterm2.plist.backup"
+        mv "$ITERM_TARGET" "${ITERM_TARGET}.backup"
+    elif [[ -L "$ITERM_TARGET" ]]; then
+        echo_info "Removing existing iTerm2 preferences symlink"
+        rm "$ITERM_TARGET"
+    fi
+
+    echo_info "Symlinking iTerm2 preferences"
+    ln -s "$ITERM_SOURCE" "$ITERM_TARGET"
+
+    # Reload iTerm2 preferences if iTerm2 is running
+    if pgrep -x "iTerm2" > /dev/null; then
+        echo_info "Reloading iTerm2 preferences..."
+        defaults read com.googlecode.iterm2 > /dev/null 2>&1
+    fi
+else
+    echo_warn "iTerm2 preferences file not found in dotfiles, skipping"
+fi
+
 # Create symlinks
 echo_step "Creating symlinks..."
 for file in "${FILES_TO_LINK[@]}"; do
