@@ -1,6 +1,3 @@
-tap "homebrew/bundle"
-tap "homebrew/services"
-
 # Development tools
 cask "iterm2"
 brew "zsh-autocomplete"
