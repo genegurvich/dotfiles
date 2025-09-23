@@ -7,30 +7,30 @@ brew "zsh-autocomplete"
 brew "git"
 brew "tmux"
 brew "tmuxinator"
+brew "htop"
+brew "tig"
+brew "jq"
+brew "gh"
 cask "jetbrains-toolbox"
 
 # Apps
 cask "arc"
 cask "slack"
 cask "spotify"
-# cask "discord"
+cask "1password"
+cask "rectangle"
+mas "Irvue", id: 1039633667
 
 # Data stores
 # brew "postgresql", restart_service: :changed
 # brew "mysql", restart_service: :changed
 # brew "redis", restart_service: :changed
 
-# Utilities
-brew "htop"
-brew "tig"
-brew "jq"
-brew "gh"
-
 # Node / TypeScript
-brew "node"
+# brew "node"
 
 # Python
-brew "python"
+# brew "python"
 
 # Go
 # brew "go"
@@ -55,3 +55,4 @@ brew "python"
 # brew "git-lfs"
 # cask "ngrok"
 # cask "postman"
+# cask "discord"
