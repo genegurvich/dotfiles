@@ -23,21 +23,13 @@ alias gdc="git diff --cached"
 alias gdi="git diff --ignore-all-space"
 alias gsl="git stash list"
 
-# Deno
-export DENO_INSTALL="/Users/gene/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
-
 # JetBrains
 export JETBRAINS_SCRIPTS="~/Library/Application\ Support/JetBrains/Toolbox/scripts"
 export PATH="$JETBRAINS_SCRIPTS:$PATH"
 
 # Go
-export PATH="$PATH:$(go env GOPATH)/bin"
+# export PATH="$PATH:$(go env GOPATH)/bin"
 
 # Python
-alias python=python3
-alias pip=pip3
-
-# Backing up old xcode-select developer path
-# /Library/Developer/CommandLineTools
-
+# alias python=python3
+# alias pip=pip3
