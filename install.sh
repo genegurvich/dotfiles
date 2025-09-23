@@ -116,22 +116,21 @@ else
     cd "$DOTFILES_DIR"
 fi
 
-# Check if Homebrew is installed
-if ! command -v brew &> /dev/null; then
-    echo_info "Installing Homebrew..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-    # Add Homebrew to PATH for Apple Silicon Macs
-    if [[ $(uname -m) == "arm64" ]]; then
-        echo_info "Adding Homebrew to PATH for Apple Silicon..."
-        BREW_SHELLENV='eval "$(/opt/homebrew/bin/brew shellenv)"'
-        if ! grep -q "$BREW_SHELLENV" ~/.zprofile 2>/dev/null; then
-            echo "$BREW_SHELLENV" >> ~/.zprofile
-        fi
-        eval "$(/opt/homebrew/bin/brew shellenv)"
-    fi
+# Install oh-my-zsh if not present
+if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
+    echo_step "Installing oh-my-zsh..."
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 else
-    echo_info "Homebrew is already installed"
+    echo_info "oh-my-zsh is already installed"
+fi
+
+# Ensure .zshrc sources .zshrc.local
+ZSHRC_SOURCE_LINE="[[ -f $HOME/.zshrc.local ]] && source $HOME/.zshrc.local"
+if [[ -f "$HOME/.zshrc" ]] && ! grep -q "source.*\.zshrc\.local" "$HOME/.zshrc"; then
+    echo_info "Adding .zshrc.local source to .zshrc..."
+    echo "" >> "$HOME/.zshrc"
+    echo "# Source local configuration" >> "$HOME/.zshrc"
+    echo "$ZSHRC_SOURCE_LINE" >> "$HOME/.zshrc"
 fi
 
 # List of files to symlink
@@ -139,7 +138,6 @@ FILES_TO_LINK=(
     ".gitconfig"
     ".tmux.conf"
     ".tmux.conf.local"
-    ".zshrc"
     ".zshrc.local"
 )
 
@@ -178,6 +176,24 @@ if [[ -d "$DOTFILES_DIR/.tmux" ]]; then
 
     echo_info "Symlinking .tmux directory"
     ln -s "$DOTFILES_DIR/.tmux" "$HOME/.tmux"
+fi
+
+# Check if Homebrew is installed
+if ! command -v brew &> /dev/null; then
+    echo_info "Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    # Add Homebrew to PATH for Apple Silicon Macs
+    if [[ $(uname -m) == "arm64" ]]; then
+        echo_info "Adding Homebrew to PATH for Apple Silicon..."
+        BREW_SHELLENV='eval "$(/opt/homebrew/bin/brew shellenv)"'
+        if ! grep -q "$BREW_SHELLENV" ~/.zprofile 2>/dev/null; then
+            echo "$BREW_SHELLENV" >> ~/.zprofile
+        fi
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    fi
+else
+    echo_info "Homebrew is already installed"
 fi
 
 # Run brew install if Brewfile exists
