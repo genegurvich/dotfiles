@@ -16,6 +16,8 @@ cask "slack"
 cask "spotify"
 cask "1password"
 cask "rectangle"
+cask "tuple"
+cask "zoom"
 mas "Irvue", id: 1039633667
 
 # Data stores
