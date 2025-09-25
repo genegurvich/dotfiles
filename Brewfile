@@ -12,12 +12,14 @@ cask "jetbrains-toolbox"
 
 # Apps
 cask "arc"
+cask "fantastical"
 cask "slack"
 cask "spotify"
 cask "1password"
 cask "rectangle"
 cask "tuple"
 cask "zoom"
+cask "chatgpt"
 mas "Irvue", id: 1039633667
 
 # Data stores
